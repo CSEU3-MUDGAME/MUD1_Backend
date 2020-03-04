@@ -25,6 +25,7 @@ class World:
         for y, row in enumerate(self.grid):
             for x, room in enumerate(row):
                 directions = ['n', 'w']
+                direction = None
                 if y - 1 < 0 and x - 1 < 0:
                     pass
                 elif y - 1 == 0:
@@ -37,7 +38,7 @@ class World:
 
                 if direction == "w":
                     complement = self.grid[y][x - 1]
-                else:
+                    room.connectRooms(complement, direction)
+                elif direction == "n":
                     complement = self.grid[y - 1][x]
-
-                room.connectRooms(complement, direction)
+                    room.connectRooms(complement, direction)
