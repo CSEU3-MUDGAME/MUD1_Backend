@@ -33,7 +33,7 @@ class World:
                     rand_direction = randint(0, 1)
                     direction = directions[rand_direction]
 
-                if direction = "w":
+                if direction == "w":
                     complement = self.grid[y][x - 1]
                 else:
                     complement = self.grid[y - 1][x]
