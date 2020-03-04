@@ -65,6 +65,3 @@ def generateRooms():
 
         })
     return rooms
-
-
-print(generateDescription(2))
