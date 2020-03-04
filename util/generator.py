@@ -25,8 +25,10 @@ class World:
         for y, row in enumerate(self.grid):
             for x, room in enumerate(row):
                 directions = ['n', 'w']
-                if y - 1 < 0:
+                if y - 1 < 0 and x - 1 < 0:
                     pass
+                elif y - 1 == 0:
+                    direction = "w"
                 elif x - 1 < 0:
                     direction = "n"
                 else:
