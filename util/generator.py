@@ -35,8 +35,13 @@ class World:
                 if x + 1 > len(row) - 1:
                     directions.remove('e')
 
+                last_rand = None
                 for _ in range(2):
                     idx = randint(0, len(directions) - 1)
+
+                    while idx == last_rand:
+                        idx = randint(0, len(directions) - 1)
+
                     direction = directions[idx]
                     if direction == 'n':
                         complement = self.grid[y - 1][x]
@@ -48,3 +53,4 @@ class World:
                         complement = self.grid[y + 1][x]
 
                     room.connectRooms(complement, direction)
+                    last_rand = idx
