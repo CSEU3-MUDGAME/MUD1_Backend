@@ -26,7 +26,7 @@ class World:
             for x, room in enumerate(row):
                 directions = ['n', 'w']
                 if y - 1 < 0:
-                    direction = "w"
+                    pass
                 elif x - 1 < 0:
                     direction = "n"
                 else:
