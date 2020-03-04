@@ -28,7 +28,7 @@ class World:
                 direction = None
                 if y - 1 < 0 and x - 1 < 0:
                     pass
-                elif y - 1 == 0:
+                elif y - 1 < 0:
                     direction = "w"
                 elif x - 1 < 0:
                     direction = "n"
