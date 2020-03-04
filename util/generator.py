@@ -39,6 +39,8 @@ class World:
                 if direction == "w":
                     complement = self.grid[y][x - 1]
                     room.connectRooms(complement, direction)
+                    complement.connectRooms(room, "e")
                 elif direction == "n":
                     complement = self.grid[y - 1][x]
                     room.connectRooms(complement, direction)
+                    complement.connectRooms(room, "s")
