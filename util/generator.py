@@ -38,13 +38,13 @@ class World:
                     for direction in directions:
                         neighbor = ''
                         if direction == 'n':
-                            neighbor = self.grid[y - 1][x]
+                            neighbor = self.grid[y + 1][x]
                         if direction == 'e':
                             neighbor = self.grid[y][x + 1]
                         if direction == 'w':
                             neighbor = self.grid[y][x - 1]
                         if direction == 's':
-                            neighbor = self.grid[y + 1][x]
+                            neighbor = self.grid[y - 1][x]
                         flag = randint(0, 1)
                         if flag:
                             room.connectRooms(neighbor, direction)
