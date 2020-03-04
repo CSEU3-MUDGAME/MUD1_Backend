@@ -24,38 +24,18 @@ class World:
 
         for y, row in enumerate(self.grid):
             for x, room in enumerate(row):
-                directions = ['n', 's', 'e', 'w']
-                connections = 3
-
+                directions = ['n', 'w']
                 if y - 1 < 0:
-                    directions.remove('n')
-                    connections -= 1
-                if y + 1 > len(self.grid) - 1:
-                    directions.remove('s')
-                    connections -= 1
-                if x - 1 < 0:
-                    directions.remove('w')
-                    connections -= 1
-                if x + 1 > len(row) - 1:
-                    directions.remove('e')
-                    connections -= 1
+                    direction = "w"
+                elif x - 1 < 0:
+                    direction = "n"
+                else:
+                    rand_direction = randint(0, 1)
+                    direction = directions[rand_direction]
 
-                last_rand = None
-                for _ in range(connections):
-                    idx = randint(0, len(directions) - 1)
+                if direction == "w":
+                    complement = self.grid[y][x - 1]
+                else:
+                    complement = self.grid[y - 1][x]
 
-                    while idx == last_rand:
-                        idx = randint(0, len(directions) - 1)
-
-                    direction = directions[idx]
-                    if direction == 'n':
-                        complement = self.grid[y - 1][x]
-                    elif direction == 'e':
-                        complement = self.grid[y][x + 1]
-                    elif direction == 'w':
-                        complement = self.grid[y][x - 1]
-                    elif direction == 's':
-                        complement = self.grid[y + 1][x]
-
-                    room.connectRooms(complement, direction)
-                    last_rand = idx
+                room.connectRooms(complement, direction)
